@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.webserver.dao.TbUserMapper">
+
+    <!--查询用户信息-->
+    <select id="findUserByUserName" parameterType="String" resultType="com.webserver.model.mo.TbUser">
+        SELECT id,user_name,iphone FROM t_user WHERE user_name =#{userName}
+    </select>
+
+    <!--<resultMap id="User" type="com.webserver.model.mo.TbUser">-->
+        <!--<id property="TbUser.id" column="id"></id>-->
+        <!--<result property="userName" column="user_name"></result>-->
+        <!--<result property="iphone" column="iphone"></result>-->
+        <!--<result property="salt" column="salt"></result>-->
+        <!--<result property="pass" column="pass"></result>-->
+    <!--</resultMap>-->
+
+    <insert id="insertUserInfo" parameterType="com.webserver.model.mo.TbUser">
+      INSERT INTO  t_user(id, user_name, iphone, salt, pass) VALUES (#{userInfo.id},#{userInfo.userName},#{userInfo.iphone},#{userInfo.salt},#{userInfo.pass});
+    </insert>
+
+</mapper>
+
+
+
+
+
+
+
+
